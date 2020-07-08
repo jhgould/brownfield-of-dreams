@@ -13,7 +13,7 @@
     <% if @bookmarks != nil %>
       <% @bookmarks.each do |bookmark| %>
         <ul>
-          <li><%= bookmark.title %></li>
+          <li><%= link_to bookmark.title, tutorial_path(bookmark.tutorial_id) %></li>
         </ul>
       <% end %>
     <% end %>

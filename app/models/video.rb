@@ -3,8 +3,5 @@ class Video < ApplicationRecord
   has_many :users, through: :user_videos
   belongs_to :tutorial, dependent: :destroy
 
-  def self.tutorials(current_user_id)
-    select('videos.*, tutorials.*').joins(:user_videos, :tutorial).where("user_id = ?", current_user_id).uniq
-  end
 
 end

@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-    @bookmarks = UserVideo.bookmarked(@user.id)
-    @tut = Video.tutorials(@user.id)
-    # @tutss = Tutorial.all
-    # binding.pry
+    @bookmarks = current_user.videos
     if @user.token.nil?
       @followers = []
       @following = []

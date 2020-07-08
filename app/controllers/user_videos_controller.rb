@@ -9,7 +9,6 @@ class UserVideosController < ApplicationController
       flash[:success] = 'Bookmark added to your dashboard!'
     end
     redirect_to "/dashboard"
-    # redirect_back(fallback_location: root_path)
   end
 
   private
