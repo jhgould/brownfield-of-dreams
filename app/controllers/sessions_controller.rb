@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def login
-    current_user.password = "password"
+    # current_user.password = "password"
     current_user.update!(token: "token #{token}")
     redirect_to dashboard_path
   end
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   # def login
     # binding.pry
     # client_id     =
-    # client_secret = 
+    # client_secret =
     # code          = params[:code]
     # response      = Faraday.post("https://github.com/login/oauth/access_token?client_id=#{client_id}&client_secret=#{client_secret}&code=#{code}")
     # pairs = response.body.split("&")

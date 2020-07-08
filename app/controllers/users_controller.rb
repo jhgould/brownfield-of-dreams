@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def show
-    # @user = User.find_by(params[:user_id])
-    # @user = User.find_by(@current_user)
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
+    @bookmarks = UserVideo.bookmarked(@user.id)
     if @user.token.nil?
       @followers = []
       @following = []
@@ -29,7 +28,6 @@ class UsersController < ApplicationController
       @repos = parsed.map do |repo_data|
         Repo.new(repo_data)
       end.first(5)
-
     end
   end
 
