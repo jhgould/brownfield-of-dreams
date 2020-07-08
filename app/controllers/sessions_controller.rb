@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def login
-    # current_user.password = "password"
+    current_user.password = "password"
     current_user.update!(token: "token #{token}")
     redirect_to dashboard_path
   end
