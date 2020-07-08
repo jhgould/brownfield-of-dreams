@@ -37,7 +37,6 @@ describe 'A registered user' do
     video2 = create(:video, title: "The bow tie", tutorial: tutorial2)
     user = User.create!(email: 'user@example.com', first_name: 'User', last_name: 'Regular', password:  "password")
     user2 = User.create!(email: 'user2@example.com', first_name: 'User2', last_name: 'Regular', password:  "password")
-    # UserVideo.create!(user_id: user.id, video_id: video.id)
     visit "/"
     click_on "Sign In"
     fill_in "Email", with: user.email
@@ -69,5 +68,7 @@ describe 'A registered user' do
     expect(current_path).to eq("/dashboard")
     expect(page).to_not have_content(video.title)
     expect(page).to have_content(video2.title)
+    click_on video2.title
+    expect(current_path).to eq(tutorial_path(tutorial2.id))
   end
 end
