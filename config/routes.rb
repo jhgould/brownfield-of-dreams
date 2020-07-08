@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       resources :videos, only:[:show]
     end
   end
+  get '/email', to: 'emails#create'
+  # post '/email', to: 'emails#create'
+
+  resources :confirmation, only: [:show]
 
   root 'welcome#index'
   get '/auth/github/callback', to: 'sessions#login'

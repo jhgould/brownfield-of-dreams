@@ -19,6 +19,7 @@ Bundler.require(*Rails.groups)
 
 module PersonalProject
   class Application < Rails::Application
+    config.action_mailer.default_url_options = { host: 'https://brownsfield.herokuapp.com' }
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

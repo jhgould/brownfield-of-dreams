@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.smtp_settings = { domain: 'http://localhost:3000/', address: "smtp.sendgrid.net", port: 587, authentication: :plain, user_name: 'apikey', password: ENV['SENDGRID_API_KEY'] }
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
