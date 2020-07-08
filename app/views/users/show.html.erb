@@ -10,6 +10,14 @@
   </ul>
   <section>
     <h1>Bookmarked Segments</h1>
+    <% if @bookmarks != nil %>
+      <% @bookmarks.each do |bookmark| %>
+        <ul>
+          <li><%= link_to bookmark.title, tutorial_path(bookmark.tutorial_id) %></li>
+        </ul>
+      <% end %>
+    <% end %>
+
   </section>
   <section class ='repo'>
     <% if @user.token == nil %>
@@ -53,7 +61,6 @@
       <% end %>
     </section>
   </section>
-</section>
 
 <h2>Your Friends</h2>
 <ul>
@@ -61,3 +68,7 @@
   <li><%= friendship.friend.login %>
   <% end %>
 </ul>
+<h2></h2>
+
+
+</section>
