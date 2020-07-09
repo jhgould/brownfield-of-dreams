@@ -3,8 +3,17 @@ class ApplicationController < ActionController::Base
   helper_method :find_bookmark
   helper_method :list_tags
   helper_method :tutorial_name
+  helper_method :current_status
 
   add_flash_types :success
+
+  def current_status
+    if current_user.status
+      "Active"
+    else
+      "Inactive"
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
+
     @bookmarks = current_user.videos
     if @user.token.nil?
       @followers = []
@@ -37,9 +38,10 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+    flash[:notice] = "Logged in as #{user.first_name} #{user.last_name}. This account has not yet been activated. Please check your email."
     if user.save
       session[:user_id] = user.id
-      redirect_to dashboard_path
+      redirect_to "/email"
     else
       flash[:error] = 'Username already exists'
       render :new
