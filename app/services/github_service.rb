@@ -13,6 +13,11 @@ class GithubService
     end
   end
 
+  def get_email(handle)
+    user_email_info = user_conn(handle).get()
+    JSON.parse(user_email_info.body, symbolize_names: true)
+  end
+
   private
 
   def get_json(url, params)
@@ -24,5 +29,9 @@ class GithubService
     Faraday.new('https://api.github.com') do |req|
       req.headers['Authorization'] = @user.token
     end 
+  end
+
+  def handle_conn(handle)
+    Faraday.new("https://api.github.com/users/#{handle}")
   end
 end
