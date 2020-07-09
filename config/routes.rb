@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
   get '/email', to: 'emails#create'
   get '/email/:id', to: 'emails#update'
-  # post '/email', to: 'emails#create'
+ 
+  get '/invite', to: 'invites#new'
+  post '/invite', to: 'invites#create'
 
   resources :confirmation, only: [:show]
 

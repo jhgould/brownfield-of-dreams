@@ -63,13 +63,13 @@
     </section>
   </section>
 
-<h2>Your Friends</h2>
-<ul>
-  <% @user.friendships.each do |friendship| %>
-  <li><%= friendship.friend.login %>
-  <% end %>
-</ul>
-<h2></h2>
+  <h2>Your Friends</h2>
+  <ul>
+    <% @user.friendships.each do |friendship| %>
+    <li><%= friendship.friend.login %>
+    <% end %>
+  </ul>
 
-
+  <li><%= link_to 'Send an Invite', '/invite' %></li>
+  
 </section>

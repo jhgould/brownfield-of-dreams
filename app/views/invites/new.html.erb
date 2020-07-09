@@ -1,0 +1,12 @@
+<h2>Please submit users GitHub handle.</h2>
+<br>
+<section class="invite-form">
+  <%= form_tag "/invite", method: :post do %>
+  <%= label_tag "github_handle"%>
+  <%= text_field_tag "github_handle" %>
+
+  <%= submit_tag "Send Invite"%>
+  <% end %>
+</section>
+
+ 
