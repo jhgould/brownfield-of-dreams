@@ -9,24 +9,18 @@ describe 'Email invitations' do
 
   it "user can send invite" do
 
-    visit '/'
-    click_on "Sign In"
-    expect(current_path).to eq(login_path)
-    fill_in 'session[email]', with: @user.email
-    fill_in 'session[password]', with: @user.password
-    click_on 'Log In'
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit '/dashboard'
     
     click_on 'Send an Invite'
-    
-
     expect(current_path).to eq('/invite')
     
     expect(page).to have_content('Please submit users GitHub handle.')
     
-    fill_in "Github handle", with: @user_2.login
+    fill_in "Github handle", with: 'madhalle'
     click_on 'Send Invite'
+    
     expect(current_path).to eq('/dashboard')
     expect(page).to have_content('Successfully sent invite!')
 
