@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-
+    
     @bookmarks = current_user.videos
+
     if @user.token.nil?
       @followers = []
       @following = []
