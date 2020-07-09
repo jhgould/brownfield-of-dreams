@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/email/:id', to: 'emails#update'
  
   get '/invite', to: 'invites#new'
+  post '/invite', to: 'invites#create'
 
   resources :confirmation, only: [:show]
 

@@ -1,8 +1,11 @@
 class GithubService
 
-  def github_handle(handle, token)
-    headers = { Authorization: "token #{token}"}
-    res = get_json("https://api.github.com/users/#{handle}", {}, headers)
+  def initialize(user)
+    @user = user
+  end
+
+  def github_handle(handle)
+    res = get_json("https://api.github.com/users/#{handle}", {})
     if res[:id]
       res
     else
